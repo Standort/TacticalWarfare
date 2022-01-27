@@ -21,5 +21,7 @@ public class BaseEntity : MonoBehaviour
             spriteRenderer.flipX = true;
         }
         this.currentNode = spawnNode;
+        transform.position = currentNode.worldPosition;
+        currentNode.setOccupied(true);
     }
 }
