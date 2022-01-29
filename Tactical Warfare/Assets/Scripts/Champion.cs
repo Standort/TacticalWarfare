@@ -8,19 +8,21 @@ public class Champion
     public int id;
     public string championName;
     public int cost;
-   
+    public Sprite spriteImage;
+
     //tuki bi dal traite
     public Champion()
     {
 
     }
 
-    public Champion(int Id, string Name, int Cost)
+    public Champion(int Id, string Name, int Cost, Sprite SpriteImg  )
     {
         id = Id;
         championName = Name;
         cost = Cost;
-        
+        spriteImage = SpriteImg;
+
 
     }
 

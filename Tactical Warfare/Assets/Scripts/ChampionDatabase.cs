@@ -9,8 +9,9 @@ public class ChampionDatabase : MonoBehaviour
 
     private void Awake()
     {
-        championList.Add(new Champion(15, "None", 0 ));
-        championList.Add(new Champion(0, "Garen", 2));
-        championList.Add(new Champion(2, "Katarina", 3));
+        
+        championList.Add(new Champion(0, "Garen",1, Resources.Load<Sprite>("Garen")));
+        championList.Add(new Champion(1, "Katarina", 2, Resources.Load<Sprite>("Katarina")));
+      
     }
 }

@@ -10,24 +10,32 @@ public class DisplayChampion : MonoBehaviour
     public int id;
     public string championName;
     public int cost;
+    public Sprite spriteImage;
+
 
     public Text nameText;
     public Text costText;
-    
+    public Image artImage;
+
+
     // Start is called before the first frame update
     void Start()
     {
         DisplayChampions.Add(ChampionDatabase.championList[displayID]);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         id = DisplayChampions[0].id;
         championName = DisplayChampions[0].championName;
         cost = DisplayChampions[0].cost;
-
+        Debug.Log(DisplayChampions[0].spriteImage);
+        spriteImage = DisplayChampions[0].spriteImage;
         nameText.text = " " + championName;
         costText.text = " " + cost;
+        artImage.sprite = spriteImage;
     }
 }
