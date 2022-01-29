@@ -12,6 +12,7 @@ public class ChampionDatabase : MonoBehaviour
         
         championList.Add(new Champion(0, "Garen",1, Resources.Load<Sprite>("Garen")));
         championList.Add(new Champion(1, "Katarina", 2, Resources.Load<Sprite>("Katarina")));
-      
+        championList.Add(new Champion(2, "Olaf", 5, Resources.Load<Sprite>("Olaf")));
+        championList.Add(new Champion(3, "Elise", 3, Resources.Load<Sprite>("Elise")));
     }
 }

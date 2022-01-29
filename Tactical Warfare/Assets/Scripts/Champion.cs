@@ -10,7 +10,7 @@ public class Champion
     public int cost;
     public Sprite spriteImage;
 
-    //tuki bi dal traite
+  
     public Champion()
     {
 

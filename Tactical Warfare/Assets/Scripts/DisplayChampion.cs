@@ -22,6 +22,7 @@ public class DisplayChampion : MonoBehaviour
     void Start()
     {
         DisplayChampions.Add(ChampionDatabase.championList[displayID]);
+
         
     }
 
@@ -32,7 +33,7 @@ public class DisplayChampion : MonoBehaviour
         id = DisplayChampions[0].id;
         championName = DisplayChampions[0].championName;
         cost = DisplayChampions[0].cost;
-        Debug.Log(DisplayChampions[0].spriteImage);
+ 
         spriteImage = DisplayChampions[0].spriteImage;
         nameText.text = " " + championName;
         costText.text = " " + cost;
