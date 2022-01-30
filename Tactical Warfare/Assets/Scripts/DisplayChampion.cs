@@ -63,6 +63,7 @@ public class DisplayChampion : MonoBehaviour
             DisplayChampions[0] = ChampionPool.staticPool[numberOfChampionsInPool - 1];
             //numberOfChampionsInPool -= 1;
             ChampionPool.poolSize -= 1;
+            
             championBack = false;
             this.tag = "Untagged";
         }
