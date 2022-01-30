@@ -328,9 +328,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf6f0a4f7ea2f14e8e9686ac85595a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayChampions: []
-  displayID: 3
-  id: 1
+  DisplayChampions:
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  displayID: 2
+  id: 0
   championName: 0
   cost: 0
   spriteImage: {fileID: 0}

@@ -18,20 +18,29 @@ public class ChampionPool : MonoBehaviour
     void Start()
     {
         staticPool = pool;
-        poolSize = ChampionDatabase.championList.Count;
-        
+        poolSize = 8;
+     
         for (int i = 0; i <  poolSize; i++)
         {
            
-            pool.Add (ChampionDatabase.championList[i]);
+            pool[i] = ChampionDatabase.championList[i];
         }
        Shuffle();
-        StartCoroutine(StartGame());
+        AddToHand();
+       // StartCoroutine(StartGame()); //ce hoces delay
     }
+    public void AddToHand()
+    {
+        for (int i = 0; i < 4; i++)//stevilo champov v roki
+        {
+           
 
+            Instantiate(ChampionToHand, transform.position, transform.rotation);
+        }
+    }
     IEnumerator StartGame()
     {
-        for(int i = 0; i<=4; i++)//stevilo champov v roki
+        for(int i = 0; i<2; i++)//stevilo champov v roki
         {
             yield return new WaitForSeconds(0);
 
@@ -45,12 +54,13 @@ public class ChampionPool : MonoBehaviour
     }
     public void Shuffle()
     {
-     
+        Debug.Log("shuffle");
         for(int i = 0; i<poolSize;i++)
         {
            
             container[0] = pool[i];
             int randomIndex = Random.Range(i, poolSize);
+           
             pool[i] = pool[randomIndex];
             pool[randomIndex] = container[0];
         }

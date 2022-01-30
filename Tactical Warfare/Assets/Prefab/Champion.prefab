@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 2984247677273659766}
   m_Layer: 5
   m_Name: Champion
-  m_TagString: Untagged
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,8 +328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayChampions: []
-  displayID: 3
-  id: 1
+  displayID: 0
+  id: 0
   championName: 0
   cost: 0
   spriteImage: {fileID: 0}
@@ -337,6 +337,8 @@ MonoBehaviour:
   nameText: {fileID: 2984247677247564411}
   costText: {fileID: 2984247677234082556}
   artImage: {fileID: 2984247678883239137}
+  Hand: {fileID: 0}
+  numberOfChampionsInPool: 0
 --- !u!114 &2984247677273659766
 MonoBehaviour:
   m_ObjectHideFlags: 0

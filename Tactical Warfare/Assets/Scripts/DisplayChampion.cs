@@ -21,13 +21,24 @@ public class DisplayChampion : MonoBehaviour
     public GameObject Hand;
     public int numberOfChampionsInPool;
     // Start is called before the first frame update
+    
     void Start()
     {
-        
-        
-        DisplayChampions.Add(ChampionDatabase.championList[displayID]);
 
-       
+        numberOfChampionsInPool = ChampionPool.poolSize;
+        DisplayChampions[0]= ChampionDatabase.championList[displayID];
+
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //   displayID = DisplayChampions[0].
+
+        //  print(displayID);
+        numberOfChampionsInPool = ChampionPool.poolSize;
         id = DisplayChampions[0].id;
         championName = DisplayChampions[0].championName;
         cost = DisplayChampions[0].cost;
@@ -37,12 +48,7 @@ public class DisplayChampion : MonoBehaviour
         costText.text = " " + cost;
         artImage.sprite = spriteImage;
 
-        numberOfChampionsInPool = ChampionPool.poolSize;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         Hand = GameObject.Find("Hand");
         
         if(this.transform.parent == Hand.transform.parent)
@@ -50,14 +56,17 @@ public class DisplayChampion : MonoBehaviour
             championBack = false;
         }
         staticchampionBack = championBack;
-        if(this.tag == "Clone" && numberOfChampionsInPool != 0)
+        if(this.tag == "Clone" )//&& numberOfChampionsInPool != 0)
         {
-            
-            DisplayChampions.Add(ChampionPool.staticPool[numberOfChampionsInPool - 1]);
-            numberOfChampionsInPool -= 1;
+
+            print(numberOfChampionsInPool);
+            DisplayChampions[0] = ChampionPool.staticPool[numberOfChampionsInPool - 1];
+            //numberOfChampionsInPool -= 1;
             ChampionPool.poolSize -= 1;
             championBack = false;
             this.tag = "Untagged";
         }
+
+        
     }
 }
