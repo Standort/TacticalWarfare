@@ -6,12 +6,18 @@ public class ChampionPool : MonoBehaviour
 {
     public List<Champion> pool = new List<Champion>();
     public List<Champion> container = new List<Champion>();
+    public static List<Champion> staticPool = new List<Champion>();
     
-    public int poolSize;
+    public static int poolSize;
+    public GameObject ChampionToHand;
+    public GameObject[] Clones;
+    public GameObject Hand;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        staticPool = pool;
         poolSize = ChampionDatabase.championList.Count;
         
         for (int i = 0; i <  poolSize; i++)
@@ -20,12 +26,22 @@ public class ChampionPool : MonoBehaviour
             pool.Add (ChampionDatabase.championList[i]);
         }
        Shuffle();
+        StartCoroutine(StartGame());
     }
 
+    IEnumerator StartGame()
+    {
+        for(int i = 0; i<=4; i++)//stevilo champov v roki
+        {
+            yield return new WaitForSeconds(0);
+
+            Instantiate(ChampionToHand, transform.position, transform.rotation);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        staticPool = pool;
     }
     public void Shuffle()
     {
