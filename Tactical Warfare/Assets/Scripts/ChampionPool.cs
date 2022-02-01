@@ -12,8 +12,11 @@ public class ChampionPool : MonoBehaviour
     public GameObject ChampionToHand;
     public GameObject[] Clones;
     public GameObject Hand;
+    public GameObject tempChampion;
 
-    
+    private Champion displaychampion;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +28,12 @@ public class ChampionPool : MonoBehaviour
            
             pool[i] = ChampionDatabase.championList[i];
         }
-       Shuffle();
+        
+        Shuffle();
         AddToHand();
        //StartCoroutine(StartGame()); //ce hoces delay
     }
+   
     public void AddToHand()
     {
         for (int i = 0; i < 4; i++)//stevilo champov v roki
@@ -36,8 +41,32 @@ public class ChampionPool : MonoBehaviour
            
 
             Instantiate(ChampionToHand, transform.position, transform.rotation);
-         
+          
         }
+    }
+    public void EmptyHand()
+    {
+        SendBackToPool();
+        foreach (Transform child in Hand.transform)
+        {
+            
+           // print(tempChampion.championName);//doesn't work
+            
+            GameObject.Destroy(tempChampion);//destroy works
+            
+        }
+    }
+    public void SendBackToPool()
+    {
+            for(int i = 0; i<DisplayChampion.ShopChampions.Count;i++)
+                 {
+                         pool.Add(DisplayChampion.ShopChampions[i]);
+            DisplayChampion.ShopChampions.RemoveAt(i);           
+                 }
+           
+         //   pool.Add(tempChampion);
+        
+          
     }
     IEnumerator StartGame()
     {
@@ -51,13 +80,14 @@ public class ChampionPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SendBackToPool();
         staticPool = pool;
        // foreach (var x in staticPool) Debug.Log(x.championName);
     }
     public void Shuffle()
     {
         Debug.Log("shuffle");
+       // DisplayChampion.Init()
         for(int i = 0; i<poolSize;i++)
         {
            

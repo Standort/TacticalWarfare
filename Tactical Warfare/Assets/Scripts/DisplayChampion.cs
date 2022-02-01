@@ -6,7 +6,7 @@ public class DisplayChampion : MonoBehaviour
 {
     //14. april oddaj
     public List<Champion> DisplayChampions = new List<Champion>();
-    public List<Champion> ShopChampions = new List<Champion>();
+    public static List<Champion> ShopChampions = new List<Champion>();
     public int[] champID;
     public int displayID;
     public int id;
@@ -24,16 +24,19 @@ public class DisplayChampion : MonoBehaviour
     public int numberOfChampionsInPool;
     // Start is called before the first frame update
     
-    void Start()
+    public void Start()
     {
 
-        numberOfChampionsInPool = ChampionPool.poolSize;
-        DisplayChampions[0]= ChampionDatabase.championList[displayID];
-
-
-
+        Init();
     }
+    public void Init()
+    {
+        numberOfChampionsInPool = ChampionPool.poolSize;
+        DisplayChampions[0] = ChampionDatabase.championList[displayID];
 
+
+        print("Mjav");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -63,11 +66,11 @@ public class DisplayChampion : MonoBehaviour
 
             //print(ChampionPool.poolSize);
             DisplayChampions[0] = ChampionPool.staticPool[numberOfChampionsInPool - 1]; //tuki je koda za shop percentage 
-            ShopChampions[0] = ChampionPool.staticPool[numberOfChampionsInPool - 1];
+            ShopChampions.Add(ChampionPool.staticPool[numberOfChampionsInPool - 1]);
            
             ChampionPool.staticPool.RemoveAt(numberOfChampionsInPool - 1);
             //ChampionPool.staticPool[numberOfChampionsInPool - 1] = ChampionDatabase.championList[numberOfChampionsInPool - 1];
-            print(ShopChampions[0].cost);
+          
             //numberOfChampionsInPool -= 1;
             ChampionPool.poolSize -= 1;
           
@@ -77,22 +80,5 @@ public class DisplayChampion : MonoBehaviour
        
        
     }
-    public void Refresh(int xx)
-    {
-      
-        
-         //  print(ShopChampions.Count);
-            for(int i = 0; i< xx;i++)
-            {
-
-                ChampionPool.staticPool.Add(ShopChampions[i]);
-               print(ShopChampions[i].championName);
-                ShopChampions.RemoveAt(i);
-            }
-           
-         
-            //ChampionPool.staticPool[numberOfChampionsInPool - 1]= ShopChampions[0];
-        
-        
-    }
+    
 }

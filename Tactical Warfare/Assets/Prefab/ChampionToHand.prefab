@@ -333,31 +333,7 @@ MonoBehaviour:
     championName: 
     cost: 0
     spriteImage: {fileID: 0}
-  - id: 0
-    championName: 
-    cost: 0
-    spriteImage: {fileID: 0}
-  - id: 0
-    championName: 
-    cost: 0
-    spriteImage: {fileID: 0}
-  - id: 0
-    championName: 
-    cost: 0
-    spriteImage: {fileID: 0}
   ShopChampions:
-  - id: 0
-    championName: 
-    cost: 0
-    spriteImage: {fileID: 0}
-  - id: 0
-    championName: 
-    cost: 0
-    spriteImage: {fileID: 0}
-  - id: 0
-    championName: 
-    cost: 0
-    spriteImage: {fileID: 0}
   - id: 0
     championName: 
     cost: 0
