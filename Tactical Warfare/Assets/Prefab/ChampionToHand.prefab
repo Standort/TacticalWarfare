@@ -345,12 +345,31 @@ MonoBehaviour:
     championName: 
     cost: 0
     spriteImage: {fileID: 0}
+  ShopChampions:
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  - id: 0
+    championName: 
+    cost: 0
+    spriteImage: {fileID: 0}
+  champID: 
   displayID: 2
   id: 0
   championName: 0
   cost: 0
   spriteImage: {fileID: 0}
   championBack: 0
+  y: 0
   nameText: {fileID: 2984247677247564411}
   costText: {fileID: 2984247677234082556}
   artImage: {fileID: 2984247678883239137}

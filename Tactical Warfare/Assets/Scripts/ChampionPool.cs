@@ -27,7 +27,7 @@ public class ChampionPool : MonoBehaviour
         }
        Shuffle();
         AddToHand();
-       // StartCoroutine(StartGame()); //ce hoces delay
+       //StartCoroutine(StartGame()); //ce hoces delay
     }
     public void AddToHand()
     {
@@ -36,13 +36,14 @@ public class ChampionPool : MonoBehaviour
            
 
             Instantiate(ChampionToHand, transform.position, transform.rotation);
+         
         }
     }
     IEnumerator StartGame()
     {
         for(int i = 0; i<2; i++)//stevilo champov v roki
         {
-            yield return new WaitForSeconds(0);
+            yield return new WaitForSeconds(1);
 
             Instantiate(ChampionToHand, transform.position, transform.rotation);
         }
@@ -50,7 +51,9 @@ public class ChampionPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         staticPool = pool;
+       // foreach (var x in staticPool) Debug.Log(x.championName);
     }
     public void Shuffle()
     {
