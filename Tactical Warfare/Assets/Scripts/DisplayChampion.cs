@@ -35,7 +35,7 @@ public class DisplayChampion : MonoBehaviour
         DisplayChampions[0] = ChampionDatabase.championList[displayID];
 
 
-        print("Mjav");
+       
     }
     // Update is called once per frame
     void Update()

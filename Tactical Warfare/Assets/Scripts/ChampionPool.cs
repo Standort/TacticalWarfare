@@ -13,16 +13,18 @@ public class ChampionPool : MonoBehaviour
     public GameObject[] Clones;
     public GameObject Hand;
     public GameObject tempChampion;
-
+    private GameObject data;
     private Champion displaychampion;
 
    
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() { 
+    
+        
         staticPool = pool;
         poolSize = 8;
-     
+  
         for (int i = 0; i <  poolSize; i++)
         {
            
@@ -46,15 +48,22 @@ public class ChampionPool : MonoBehaviour
     }
     public void EmptyHand()
     {
-        SendBackToPool();
+        //SendBackToPool();
         foreach (Transform child in Hand.transform)
         {
+            tempChampion = child.gameObject;
+            // print(tempChampion.championName);//doesn't work
+            DisplayChampion champname = tempChampion.GetComponent<DisplayChampion>();
+            data = GameObject.FindGameObjectWithTag("Database");
             
-           // print(tempChampion.championName);//doesn't work
-            
+            ChampionDatabase data2 = data.GetComponent<ChampionDatabase>();
+
+            pool.Add(data2.championList2[champname.id]);
+            poolSize++;
             GameObject.Destroy(tempChampion);//destroy works
-            
+           // print("mjav");
         }
+       
     }
     public void SendBackToPool()
     {
