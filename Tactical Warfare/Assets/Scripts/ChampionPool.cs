@@ -31,8 +31,8 @@ public class ChampionPool : MonoBehaviour
             pool[i] = ChampionDatabase.championList[i];
         }
         
-        Shuffle();
-        AddToHand();
+     //   Shuffle();
+       // AddToHand();
        //StartCoroutine(StartGame()); //ce hoces delay
     }
    
@@ -63,7 +63,8 @@ public class ChampionPool : MonoBehaviour
             GameObject.Destroy(tempChampion);//destroy works
            // print("mjav");
         }
-       
+        Shuffle();
+        AddToHand();
     }
     public void SendBackToPool()
     {

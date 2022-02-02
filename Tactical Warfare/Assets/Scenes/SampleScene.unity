@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &451691423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451691425}
+  - component: {fileID: 451691424}
+  m_Layer: 0
+  m_Name: DragManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &451691424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451691423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace18332369f7424ca86a5e015164907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseClick:
+    m_Name: Mouse Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b7ffa3e6-613d-4fb4-80fd-39d573133933
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: adc8d24f-f449-403e-92e9-a213af2398d7
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Click
+      m_Flags: 0
+  mouseDragPhyscisSpeed: 10
+  mouseDragSpeed: 0
+--- !u!4 &451691425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451691423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.6758113, y: 1.3320857, z: 0.3379436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &472302746
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +269,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &555316052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6290683168287870863, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
+  m_PrefabInstance: {fileID: 1776616057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &555316053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555316052}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14cb70bc35b2539448bc2af866e2dca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &555316054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555316052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace18332369f7424ca86a5e015164907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseClick:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c352c5d0-c449-4b68-b851-ab3d07380b27
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  mouseDragPhyscisSpeed: 10
+  mouseDragSpeed: 0.1
+--- !u!114 &555316059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555316052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9045d214541c749a47623f4e6f29af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &567388711
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +1087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290683168287870850, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6290683168287870850, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -983,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290683168287870850, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6290683168287870850, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1013,11 +1125,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6290683168287870861, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6290683168287870863, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
       propertyPath: m_Name
       value: Capsule
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6290683168287870863, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290683168287870863, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
+      propertyPath: m_TagString
+      value: Draggable
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -1737402196626814335, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
+    - {fileID: 5232141854101922781, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
 --- !u!1 &1826524432
 GameObject:
