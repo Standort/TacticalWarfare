@@ -30,4 +30,20 @@ public class BenchMaker : MonoBehaviour
         GO.transform.parent = transform;
         GO.name = x.ToString();
     }
+    public static int firstAvailable()//vrne o ce je bench full ce ne index+1 prvege avalable bencha
+    {
+        int i = 0;
+        foreach(GameObject go in BenchTiles)
+        {
+            
+            if(go.GetComponent<BenchTileScript>().occupied == false)
+            {
+                print(i + 1);
+                return i+1;
+            }
+            i++;
+        }
+       
+        return 0;
+    }
 }

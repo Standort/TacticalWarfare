@@ -21,14 +21,21 @@ public class SpawnChampion : MonoBehaviour
         foreach(GameObject bench in  BenchMaker.BenchTiles)
         {
 
-            print(bench.GetComponent<BenchTileScript>().occupied);
+           // print(bench.GetComponent<BenchTileScript>().occupied);
         }
-        spawnChampionOnBench();
 
+        spawnChampionOnBench();
     }
     void spawnChampionOnBench()
     {
-        GameObject GO = Instantiate(Champion_Prefab, BenchMaker.BenchTiles[0].transform.position, Quaternion.identity); 
+        int x = BenchMaker.firstAvailable() - 1;
+        //print(x);
+        if(!(x==-1))
+        {
+            GameObject GO = Instantiate(Champion_Prefab, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity);
+
+            BenchMaker.BenchTiles[x].GetComponent<BenchTileScript>().occupied = true;
+        }
         
     }
 }
