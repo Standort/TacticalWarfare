@@ -103,6 +103,7 @@ public class DragAndDrop : MonoBehaviour
             var newPosition = clickedObject.transform.position;
             newPosition.x = tempor.transform.position.x;
             newPosition.z = tempor.transform.position.z;
+            newPosition.y = tempor.transform.position.y;
             clickedObject.transform.position = newPosition;
         }
 

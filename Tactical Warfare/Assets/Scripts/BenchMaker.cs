@@ -7,9 +7,13 @@ public class BenchMaker : MonoBehaviour
     public GameObject benchTilePrefab;
     int benchWidth = 8;
     float tileOfset = 1.0f;
+    public static GameObject[] BenchTiles;
+    
     void Start()
     {
+        BenchTiles = new GameObject[benchWidth +1];
         CreateBenchTileMap();
+       
     }
    void CreateBenchTileMap()
     {
@@ -18,6 +22,7 @@ public class BenchMaker : MonoBehaviour
             GameObject TempGO = Instantiate(benchTilePrefab);
             TempGO.transform.position = new Vector3(gameObject.transform.position.x + x * tileOfset, gameObject.transform.position.y , gameObject.transform.position.z );
             setTileInfo(TempGO, x);
+            BenchTiles[x] = TempGO;
         }
     }
     void setTileInfo(GameObject GO, int x)

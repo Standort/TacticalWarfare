@@ -80,5 +80,12 @@ public class DisplayChampion : MonoBehaviour
        
        
     }
-    
+    public void turnBlack()
+    {
+        championBack = !championBack ;
+    }
+    public void onChampionClick()
+    {
+
+    }
 }

@@ -31,8 +31,8 @@ public class ChampionPool : MonoBehaviour
             pool[i] = ChampionDatabase.championList[i];
         }
         
-     //   Shuffle();
-       // AddToHand();
+        Shuffle();
+       AddToHand();
        //StartCoroutine(StartGame()); //ce hoces delay
     }
    
