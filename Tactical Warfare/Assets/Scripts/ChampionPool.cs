@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ChampionPool : MonoBehaviour
 {
-    public List<Champion> pool = new List<Champion>();
+    public  List<Champion> pool = new List<Champion>();
     public List<Champion> container = new List<Champion>();
+    [SerializeField]
     public static List<Champion> staticPool = new List<Champion>();
     
     public static int poolSize;
@@ -38,12 +39,24 @@ public class ChampionPool : MonoBehaviour
    
     public void AddToHand()
     {
+        if(ChampionPool.poolSize >= 4)
         for (int i = 0; i < 4; i++)//stevilo champov v roki
         {
            
 
             Instantiate(ChampionToHand, transform.position, transform.rotation);
-          
+            
+        }
+        else
+        {
+            print("nha");
+            for (int i = 0; i < ChampionPool.poolSize; i++)//stevilo champov v roki
+            {
+
+
+                Instantiate(ChampionToHand, transform.position, transform.rotation);
+
+            }
         }
     }
     public void EmptyHand()
@@ -71,7 +84,8 @@ public class ChampionPool : MonoBehaviour
             for(int i = 0; i<DisplayChampion.ShopChampions.Count;i++)
                  {
                          pool.Add(DisplayChampion.ShopChampions[i]);
-            DisplayChampion.ShopChampions.RemoveAt(i);           
+            DisplayChampion.ShopChampions.RemoveAt(i);
+            print("Added " + i);
                  }
            
          //   pool.Add(tempChampion);
@@ -90,8 +104,9 @@ public class ChampionPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SendBackToPool();
+       // SendBackToPool();
         staticPool = pool;
+      
        // foreach (var x in staticPool) Debug.Log(x.championName);
     }
     public void Shuffle()

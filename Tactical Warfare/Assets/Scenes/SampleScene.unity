@@ -170,6 +170,9 @@ MonoBehaviour:
       m_Flags: 0
   mouseDragPhyscisSpeed: 10
   mouseDragSpeed: 0
+  tile: {fileID: 2956277040827106667, guid: 1bb5a9459a5fbae4c89f5e6eeded22a6, type: 3}
+  Material1: {fileID: 2100000, guid: 59bcd259b16a36845891247e7b22f0d1, type: 2}
+  Material2: {fileID: 2100000, guid: cab979e9f1aac8d4a89e070f95c42217, type: 2}
 --- !u!4 &451691425
 Transform:
   m_ObjectHideFlags: 0
@@ -274,18 +277,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6290683168287870863, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
   m_PrefabInstance: {fileID: 1776616057}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &555316053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555316052}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14cb70bc35b2539448bc2af866e2dca5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &555316054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseClick:
-    m_Name: 
+    m_Name: Mouse Click
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: c352c5d0-c449-4b68-b851-ab3d07380b27
@@ -308,18 +299,9 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   mouseDragPhyscisSpeed: 10
   mouseDragSpeed: 0.1
---- !u!114 &555316059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555316052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca9045d214541c749a47623f4e6f29af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  tile: {fileID: 0}
+  Material1: {fileID: 0}
+  Material2: {fileID: 0}
 --- !u!1 &567388711
 GameObject:
   m_ObjectHideFlags: 0

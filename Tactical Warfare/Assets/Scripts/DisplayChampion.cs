@@ -76,6 +76,7 @@ public class DisplayChampion : MonoBehaviour
           
             championBack = false;
             this.tag = "Untagged";
+            print(ChampionPool.poolSize);
         }
        
        

@@ -19,8 +19,13 @@ public class DragAndDrop : MonoBehaviour
     private bool Pressed = false;
     private float tileOfset = 1.0f;
     private GameObject tempor;
+    public GameObject tile;
+    public Material Material1;
+    public Material Material2;
+    GameObject previousClosest;
     public GameObject FindClosestTile(GameObject obj)
     {
+       
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Tile");
         GameObject closest = null;
@@ -37,11 +42,22 @@ public class DragAndDrop : MonoBehaviour
             }
         }
         
+        closest.GetComponent<MeshRenderer>().material = Material1;
         return closest;
+    }
+    private void changeColorBack(GameObject t)
+    {
+        t.GetComponent<MeshRenderer>().material = Material2;
     }
     private void Awake()
     {
+       
         mainCamera = Camera.main;
+    }
+    private void Start()
+    {
+       
+        previousClosest = tempor;
     }
     private void OnEnable()
     {
@@ -88,6 +104,18 @@ public class DragAndDrop : MonoBehaviour
                 yield return null;
             }
             tempor = FindClosestTile(clickedObject);
+            if(previousClosest == null)
+            {
+                changeColorBack(tempor);
+                previousClosest = tempor;
+            }
+           else if(previousClosest != tempor)
+            {
+               
+                changeColorBack(previousClosest);
+                previousClosest = tempor;
+            }
+           
         }
         if(mouseClick.ReadValue<float>() == 0 && Pressed == true)
         {
@@ -99,12 +127,13 @@ public class DragAndDrop : MonoBehaviour
             newPosition.z = Mathf.Round(newPosition.z / tileOfset) * tileOfset;
             clickedObject.transform.position = newPosition; 
             */
-            
+        
             var newPosition = clickedObject.transform.position;
             newPosition.x = tempor.transform.position.x;
             newPosition.z = tempor.transform.position.z;
             newPosition.y = tempor.transform.position.y;
             clickedObject.transform.position = newPosition;
+            changeColorBack(tempor);
         }
 
     }

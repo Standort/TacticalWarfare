@@ -6,6 +6,8 @@ public class SpawnChampion : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public GameObject Champion_Prefab;
+    int tempID = 0;
+    string tempName;
     void Start()
     {
         
@@ -16,15 +18,24 @@ public class SpawnChampion : MonoBehaviour
     {
         
     }
-    public void OnClick()
+    public void OnClick(GameObject ChampionIcon)
     {
         foreach(GameObject bench in  BenchMaker.BenchTiles)
         {
 
            // print(bench.GetComponent<BenchTileScript>().occupied);
         }
-
+        print(ChampionIcon.GetComponent<DisplayChampion>().championName);
         spawnChampionOnBench();
+        deleteIcon(ChampionIcon);
+    }
+    void deleteIcon(GameObject champ)
+    {
+        GameObject.Destroy(champ);
+        tempID = champ.GetComponent<DisplayChampion>().id;
+        tempName = champ.GetComponent<DisplayChampion>().championName;
+        print(tempName);
+
     }
     void spawnChampionOnBench()
     {
@@ -35,6 +46,7 @@ public class SpawnChampion : MonoBehaviour
             GameObject GO = Instantiate(Champion_Prefab, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity);
 
             BenchMaker.BenchTiles[x].GetComponent<BenchTileScript>().occupied = true;
+
         }
         
     }
