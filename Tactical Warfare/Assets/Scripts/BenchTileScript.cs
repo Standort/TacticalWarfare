@@ -5,7 +5,7 @@ using UnityEngine;
 public class BenchTileScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public  bool occupied;
+    public bool occupied;
     void Start()
     {
         occupied = false;

@@ -23,6 +23,7 @@ public class DragAndDrop : MonoBehaviour
     public Material Material1;
     public Material Material2;
     GameObject previousClosest;
+    GameObject currentTile;
     public GameObject FindClosestTile(GameObject obj)
     {
        
@@ -43,11 +44,14 @@ public class DragAndDrop : MonoBehaviour
         }
         
         closest.GetComponent<MeshRenderer>().material = Material1;
+        print(closest.gameObject.name);
+        print(closest.GetComponent<BenchTileScript>().occupied);
         return closest;
     }
     private void changeColorBack(GameObject t)
     {
         t.GetComponent<MeshRenderer>().material = Material2;
+      
     }
     private void Awake()
     {
@@ -56,8 +60,15 @@ public class DragAndDrop : MonoBehaviour
     }
     private void Start()
     {
-       
+      
         previousClosest = tempor;
+       // int x = BenchMaker.firstAvailable();
+        //print(x);
+        //if (x != 0)
+        //{
+        //    currentTile = BenchMaker.BenchTiles[x -1];
+        //} 
+       
     }
     private void OnEnable()
     {
@@ -77,6 +88,7 @@ public class DragAndDrop : MonoBehaviour
         {
             if(hit.collider != null && (hit.collider.gameObject.CompareTag("Draggable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable")))
             {
+                currentTile = FindClosestTile(hit.collider.gameObject);
                 StartCoroutine(DragUpdate(hit.collider.gameObject));
                 
             }
@@ -111,9 +123,11 @@ public class DragAndDrop : MonoBehaviour
             }
            else if(previousClosest != tempor)
             {
+                print("new");
                
                 changeColorBack(previousClosest);
                 previousClosest = tempor;
+
             }
            
         }
@@ -127,14 +141,36 @@ public class DragAndDrop : MonoBehaviour
             newPosition.z = Mathf.Round(newPosition.z / tileOfset) * tileOfset;
             clickedObject.transform.position = newPosition; 
             */
-        
-            var newPosition = clickedObject.transform.position;
-            newPosition.x = tempor.transform.position.x;
-            newPosition.z = tempor.transform.position.z;
-            newPosition.y = tempor.transform.position.y;
-            clickedObject.transform.position = newPosition;
-            changeColorBack(tempor);
+            if (tempor.GetComponent<BenchTileScript>().occupied == false)
+            {
+                print(tempor.GetComponent<BenchTileScript>().occupied);
+                if(tempor != currentTile)
+                {
+                    currentTile.GetComponent<BenchTileScript>().occupied = false;
+                }
+                var newPosition = clickedObject.transform.position;
+                newPosition.x = tempor.transform.position.x;
+                newPosition.z = tempor.transform.position.z;
+                newPosition.y = tempor.transform.position.y;
+                clickedObject.transform.position = newPosition;
+                changeColorBack(tempor);
+                currentTile = tempor;
+                tempor.GetComponent<BenchTileScript>().occupied = true;
+            }
+            else
+            {
+                var newPosition = clickedObject.transform.position;
+                newPosition.x = currentTile.transform.position.x;
+                newPosition.z = currentTile.transform.position.z;
+                newPosition.y = currentTile.transform.position.y;
+                clickedObject.transform.position = newPosition;
+                changeColorBack(tempor);
+                currentTile = tempor;
+                tempor.GetComponent<BenchTileScript>().occupied = true;
+            }
+            
         }
+       
 
     }
     
