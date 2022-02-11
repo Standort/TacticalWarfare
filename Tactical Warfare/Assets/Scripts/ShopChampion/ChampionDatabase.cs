@@ -11,10 +11,10 @@ public class ChampionDatabase : MonoBehaviour
     private void Awake()
     {
         
-        championList.Add(new Champion(0, "Garen",1, Resources.Load<Sprite>("Garen")));
-        championList.Add(new Champion(1, "Katarina", 2, Resources.Load<Sprite>("Katarina")));
-        championList.Add(new Champion(2, "Olaf", 5, Resources.Load<Sprite>("Olaf")));
-        championList.Add(new Champion(3, "Elise", 3, Resources.Load<Sprite>("Elise")));
+        championList.Add(new Champion(0, "Teresa", 1, Resources.Load<Sprite>("Garen")));
+        championList.Add(new Champion(1, "Mengele", 2, Resources.Load<Sprite>("Katarina")));
+        championList.Add(new Champion(2, "Kayle", 5, Resources.Load<Sprite>("Olaf")));
+        championList.Add(new Champion(3, "Khione", 3, Resources.Load<Sprite>("Elise")));
 
 
         championList.Add(new Champion(4, "Garen1", 1, Resources.Load<Sprite>("Garen")));

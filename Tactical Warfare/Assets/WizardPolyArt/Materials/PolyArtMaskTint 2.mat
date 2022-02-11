@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PolyArtMaskTint
+  m_Name: PolyArtMaskTint 2
   m_Shader: {fileID: 4800000, guid: b3b027031f09c4b4c83228ddb863368b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -43,7 +43,7 @@ Material:
     - _Smoothness: 0
     - __dirty: 0
     m_Colors:
-    - _Hair: {r: 0.6406372, g: 0.8773585, b: 0.8431626, a: 0}
-    - _InnerCloth: {r: 0.5578676, g: 0.7107863, b: 0.8773585, a: 0}
-    - _OuterChlothes: {r: 0.51135635, g: 0.6017088, b: 0.7924528, a: 0}
+    - _Hair: {r: 0.2735849, g: 0.13266286, b: 0.13266286, a: 0}
+    - _InnerCloth: {r: 0.10196079, g: 0.10196079, b: 0.10196079, a: 0}
+    - _OuterChlothes: {r: 0.18431371, g: 1, b: 0.46662924, a: 0}
   m_BuildTextureStacks: []

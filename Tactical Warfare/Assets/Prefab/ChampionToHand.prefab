@@ -335,9 +335,9 @@ MonoBehaviour:
     championName: 
     cost: 0
     spriteImage: {fileID: 0}
-  champID: 
-  displayID: 2
-  id: 1
+  champID: 00000000
+  displayID: 0
+  id: 0
   championName: 0
   cost: 0
   spriteImage: {fileID: 0}
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908262b25a581124ebcf2958ca044a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Champion_Prefab: {fileID: 6290683168287870863, guid: ca4d5b24480edd842930e0351ae6cf28, type: 3}
+  Champion_Prefab: {fileID: 1795545534832736340, guid: 038e57eb6a4962d47997f31642771943, type: 3}
 --- !u!1 &2984247677448781649
 GameObject:
   m_ObjectHideFlags: 0

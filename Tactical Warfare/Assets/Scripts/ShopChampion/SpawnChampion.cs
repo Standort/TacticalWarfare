@@ -25,8 +25,8 @@ public class SpawnChampion : MonoBehaviour
 
            // print(bench.GetComponent<BenchTileScript>().occupied);
         }
-        print(ChampionIcon.GetComponent<DisplayChampion>().championName);
-        spawnChampionOnBench();
+        tempName = ChampionIcon.GetComponent<DisplayChampion>().championName;
+        spawnChampionOnBench(tempName);
         deleteIcon(ChampionIcon);
     }
     void deleteIcon(GameObject champ)
@@ -37,13 +37,14 @@ public class SpawnChampion : MonoBehaviour
         print(tempName);
 
     }
-    void spawnChampionOnBench()
+    void spawnChampionOnBench(string name)
     {
         int x = BenchMaker.firstAvailable() - 1;
         //print(x);
         if(!(x==-1))
         {
-            GameObject GO = Instantiate(Champion_Prefab, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity);
+            var Champ = Resources.Load(name);
+            var GO = Instantiate(Champ, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity);
 
             BenchMaker.BenchTiles[x].GetComponent<BenchTileScript>().occupied = true;
 
