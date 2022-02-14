@@ -1,33 +1,37 @@
 using UnityEngine;
-
+using System.Collections;
 /* Base class that player and enemies can derive from to include stats. */
 
 public class CharacterStats : MonoBehaviour
 {
 
 	// Health
-	public float maxHealth = 100;
-	public float currentHealth { get; private set; }
+	public Stat maxHealth;
+	[SerializeField] public float currentHealth { get; private set; }
 
-	public Stat Pdamage;
-	public Stat Mdamage;
+	 Stat Pdamage;
+	 Stat Mdamage;
 	public Stat armor;
 	public Stat AD;
 	public Stat AP;
 	public Stat MR;
 	public Stat MoveSpeed;
 	public Stat AS;
-
-
+	public Stat maxMana;
+	public Stat currentMana;
+	
 	// Set current health to max health
 	// when starting the game.
 	void Awake()
 	{
-		currentHealth = maxHealth;
+		currentHealth = maxHealth.GetTrueValue();
 	}
-
-	// Damage the character
-	public void TakePDamage(float damage)
+    private void Start()
+    {
+		StartCoroutine("DoCheck");
+    }
+    // Damage the character
+    public void TakePDamage(float damage)
 	{
 		// Subtract the armor value
 		damage -= 	armor.GetValue();
@@ -41,6 +45,21 @@ public class CharacterStats : MonoBehaviour
 		if (currentHealth <= 0)
 		{
 			Die();
+		}
+	}
+
+
+	void Update()
+	{
+		//StartCoroutine("DoCheck");
+	}
+	IEnumerator DoCheck()
+	{
+		for (; ; )
+		{
+			// execute block of code here
+			TakePDamage(1);
+			yield return new WaitForSeconds(10);
 		}
 	}
 	public void TakeMDamage(float damage)
@@ -65,5 +84,23 @@ public class CharacterStats : MonoBehaviour
 		// This method is meant to be overwritten
 		Debug.Log(transform.name + " died.");
 	}
-
+	public CharacterStats(
+	 Stat Armor,
+	 Stat aD,
+	 Stat aP,
+	 Stat mR,
+	 Stat moveSpeed,
+	 Stat aS,
+	 Stat MaxMana,
+	 Stat CurrentMana)
+    {
+		armor = Armor;
+		AD = aD;
+		AP = aP;
+		MR = mR;
+		MoveSpeed = moveSpeed;
+		AS = aS;
+		maxMana = MaxMana;
+		currentMana = CurrentMana;
+    }
 }

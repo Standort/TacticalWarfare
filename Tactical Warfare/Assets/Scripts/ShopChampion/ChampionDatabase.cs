@@ -17,10 +17,10 @@ public class ChampionDatabase : MonoBehaviour
         championList.Add(new Champion(3, "Khione", 3, Resources.Load<Sprite>("Elise")));
 
 
-        championList.Add(new Champion(4, "Garen1", 1, Resources.Load<Sprite>("Garen")));
-        championList.Add(new Champion(5, "Katarina1", 2, Resources.Load<Sprite>("Katarina")));
-        championList.Add(new Champion(6, "Olaf1", 5, Resources.Load<Sprite>("Olaf")));
-        championList.Add(new Champion(7, "Elise1", 3, Resources.Load<Sprite>("Elise")));
+        championList.Add(new Champion(4, "Teresa", 1, Resources.Load<Sprite>("Garen")));
+        championList.Add(new Champion(5, "Mengele", 2, Resources.Load<Sprite>("Katarina")));
+        championList.Add(new Champion(6, "Kayle", 5, Resources.Load<Sprite>("Olaf")));
+        championList.Add(new Champion(7, "Khione", 3, Resources.Load<Sprite>("Elise")));
 
 
 

@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7931982677976522886}
-  - component: {fileID: -2330480426062513492}
+  - component: {fileID: -3078817190814076042}
+  - component: {fileID: -6065282754956338609}
   m_Layer: 0
   m_Name: IGChampion
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2330480426062513492
+--- !u!114 &-3078817190814076042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,18 +41,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795545534832736340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e9f2eec327cc543bc146cc099973fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d5b3eb98cdbab438d0df248047689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  championName: 
-  level: 0
-  ap: 0
-  ad: 0
-  atttackseed: 0
-  ms: 0
-  range: 0
-  ar: 0
-  mr: 0
-  hp: 0
-  model: {fileID: 4300000, guid: 8254954c6c0cf98469be07a2c0a87db8, type: 3}
+  ChampionName: 
+  Model: {fileID: 0}
+--- !u!114 &-6065282754956338609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795545534832736340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7311fb6900f804c9cc8dd0e2e35f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  Pdamage:
+    baseValue: 0
+  Mdamage:
+    baseValue: 0
+  armor:
+    baseValue: 0
+  AD:
+    baseValue: 0
+  AP:
+    baseValue: 0
+  MR:
+    baseValue: 0
+  MoveSpeed:
+    baseValue: 0
+  AS:
+    baseValue: 0
+  maxMana:
+    baseValue: 0
+  currentMana:
+    baseValue: 0

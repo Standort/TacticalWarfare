@@ -2294,8 +2294,6 @@ GameObject:
   - component: {fileID: 4063552230360950}
   - component: {fileID: 95805638432926132}
   - component: {fileID: 136275810615880682}
-  - component: {fileID: 2359573495205153884}
-  - component: {fileID: 8843862689876125416}
   m_Layer: 0
   m_Name: Kayle
   m_TagString: Draggable
@@ -2352,59 +2350,6 @@ CapsuleCollider:
   m_Height: 1.8772755
   m_Direction: 1
   m_Center: {x: 0, y: 0.99, z: 0}
---- !u!114 &2359573495205153884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953271650171834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e9f2eec327cc543bc146cc099973fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  championName: Kayle
-  level: 1
-  ap: 100
-  ad: 40
-  atttackseed: 1
-  ms: 10
-  range: 375
-  ar: 12
-  mr: 12
-  hp: 500
-  model: {fileID: 0}
---- !u!114 &8843862689876125416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953271650171834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7311fb6900f804c9cc8dd0e2e35f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  Pdamage:
-    baseValue: 0
-  Mdamage:
-    baseValue: 0
-  armor:
-    baseValue: 0
-  AD:
-    baseValue: 0
-  AP:
-    baseValue: 0
-  MR:
-    baseValue: 0
-  MoveSpeed:
-    baseValue: 0
-  AS:
-    baseValue: 0
 --- !u!1 &1956949540428108
 GameObject:
   m_ObjectHideFlags: 0

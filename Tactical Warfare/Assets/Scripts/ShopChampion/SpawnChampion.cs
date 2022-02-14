@@ -34,7 +34,7 @@ public class SpawnChampion : MonoBehaviour
         GameObject.Destroy(champ);
         tempID = champ.GetComponent<DisplayChampion>().id;
         tempName = champ.GetComponent<DisplayChampion>().championName;
-        print(tempName);
+       // print(tempName);
 
     }
     void spawnChampionOnBench(string name)
@@ -43,9 +43,12 @@ public class SpawnChampion : MonoBehaviour
         //print(x);
         if(!(x==-1))
         {
-            var Champ = Resources.Load(name);
-            var GO = Instantiate(Champ, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity);
-
+            GameObject Champ = Resources.Load(name) as GameObject;
+           
+          
+           GameObject GO2 = Instantiate(Champion_Prefab, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity) as GameObject;
+            GO2.GetComponent<IGChampion>().SetName(name);
+            GO2.GetComponent<IGChampion>().SetModel(Champ);
             BenchMaker.BenchTiles[x].GetComponent<BenchTileScript>().occupied = true;
 
         }

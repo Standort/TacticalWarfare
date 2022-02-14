@@ -21,7 +21,11 @@ public class Stat
 		modifiers.ForEach(x => finalValue += x);
 		return finalValue;
 	}
-
+	public float GetTrueValue()
+    {
+		float finalValue = baseValue;
+		return finalValue;
+    }
 	// Add new modifier
 	public void AddModifier(float modifier)
 	{
