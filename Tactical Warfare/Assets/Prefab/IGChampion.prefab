@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7931982677976522886}
   - component: {fileID: -3078817190814076042}
-  - component: {fileID: -6065282754956338609}
   - component: {fileID: -6365899403100812488}
   m_Layer: 0
   m_Name: IGChampion
@@ -47,36 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChampionName: 
   Model: {fileID: 0}
---- !u!114 &-6065282754956338609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795545534832736340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7311fb6900f804c9cc8dd0e2e35f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth:
-    baseValue: 0
-  armor:
-    baseValue: 0
-  AD:
-    baseValue: 0
-  AP:
-    baseValue: 0
-  MR:
-    baseValue: 0
-  MoveSpeed:
-    baseValue: 0
-  AS:
-    baseValue: 0
-  maxMana:
-    baseValue: 0
-  currentMana:
-    baseValue: 0
 --- !u!114 &-6365899403100812488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,3 +58,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad8bd5e691ef5f4b97d6d4de1036d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}

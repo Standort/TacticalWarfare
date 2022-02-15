@@ -9,12 +9,16 @@ public class Stat
 {
 
 	[SerializeField]
-	private float baseValue;  // Starting value
+	public float baseValue;  // Starting value
 
 	// List of modifiers that change the baseValue
 	private List<float> modifiers = new List<float>();
 
 	// Get the final value after applying modifiers
+	public void SetValue(float x)
+    {
+		baseValue = x;
+    }
 	public float GetValue()
 	{
 		float finalValue = baseValue;
@@ -40,4 +44,5 @@ public class Stat
 			modifiers.Remove(modifier);
 	}
 
+	
 }

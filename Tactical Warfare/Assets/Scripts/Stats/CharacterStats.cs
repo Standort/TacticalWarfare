@@ -6,6 +6,7 @@ public class CharacterStats : MonoBehaviour
 {
 
 	// Health
+	public string Name;
 	public Stat maxHealth;
 	[SerializeField] public float currentHealth { get; private set; }
 
@@ -59,7 +60,7 @@ public class CharacterStats : MonoBehaviour
 		{
 			// execute block of code here
 			TakePDamage(10);
-			yield return new WaitForSeconds(10);
+			yield return new WaitForSeconds(2);
 		}
 	}
 	public void TakeMDamage(float damage)
@@ -86,22 +87,24 @@ public class CharacterStats : MonoBehaviour
 		Debug.Log(transform.name + " died.");
 	}
 	public CharacterStats(
-	 Stat Armor,
-	 Stat aD,
-	 Stat aP,
-	 Stat mR,
-	 Stat moveSpeed,
-	 Stat aS,
-	 Stat MaxMana,
-	 Stat CurrentMana)
+	string name,
+	 float Armor,
+	 float aD,
+	 float aP,
+	 float mR,
+	 float moveSpeed,
+	 float aS,
+	 float MaxMana,
+	 float CurrentMana)
     {
-		armor = Armor;
-		AD = aD;
-		AP = aP;
-		MR = mR;
-		MoveSpeed = moveSpeed;
-		AS = aS;
-		maxMana = MaxMana;
-		currentMana = CurrentMana;
+		Name = name;
+		armor.SetValue(Armor);
+		AD.SetValue(aD);
+		AP.SetValue( aP);
+		MR.SetValue(mR);
+		MoveSpeed.SetValue( moveSpeed);
+		AS.SetValue( aS);
+		maxMana.SetValue(MaxMana);
+		currentMana.SetValue( CurrentMana);
     }
 }
