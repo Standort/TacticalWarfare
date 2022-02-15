@@ -44,7 +44,7 @@ public class CharacterStats : MonoBehaviour
 		// If health reaches zero
 		if (currentHealth <= 0)
 		{
-			Die();
+			//Die();
 		}
 	}
 
@@ -58,7 +58,7 @@ public class CharacterStats : MonoBehaviour
 		for (; ; )
 		{
 			// execute block of code here
-			TakePDamage(1);
+			TakePDamage(10);
 			yield return new WaitForSeconds(10);
 		}
 	}
@@ -82,6 +82,7 @@ public class CharacterStats : MonoBehaviour
 	{
 		// Die in some way
 		// This method is meant to be overwritten
+		gameObject.transform.parent.GetComponent<ANIM>().Animate("Die");
 		Debug.Log(transform.name + " died.");
 	}
 	public CharacterStats(
