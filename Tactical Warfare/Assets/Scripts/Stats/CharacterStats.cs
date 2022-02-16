@@ -23,6 +23,11 @@ public class CharacterStats : MonoBehaviour
 	
 	// Set current health to max health
 	// when starting the game.
+
+	void SetArmorToFive()
+    {
+		AD.baseValue = 5;
+    }
 	void Awake()
 	{
 		currentHealth = maxHealth.GetTrueValue();

@@ -9,8 +9,9 @@ public class Stat
 {
 
 	[SerializeField]
-	public float baseValue;  // Starting value
-
+	//public float baseValue;  // Starting value
+	public float baseValue;
+    
 	// List of modifiers that change the baseValue
 	private List<float> modifiers = new List<float>();
 

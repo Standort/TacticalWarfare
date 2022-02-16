@@ -47,8 +47,11 @@ public class SpawnChampion : MonoBehaviour
            
           
            GameObject GO2 = Instantiate(Champion_Prefab, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity) as GameObject;
-            GO2.GetComponent<IGChampion>().SetName(name);
-            GO2.GetComponent<IGChampion>().SetModel(Champ);
+            var currentChampion = GO2.GetComponent<IGChampion>();
+
+            currentChampion.SetName(name);
+            currentChampion.SetModel(Champ);
+            //currentChampion.
             BenchMaker.BenchTiles[x].GetComponent<BenchTileScript>().occupied = true;
 
         }
