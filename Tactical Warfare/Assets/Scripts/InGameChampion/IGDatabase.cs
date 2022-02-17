@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class IGDatabase : MonoBehaviour
 {
-    public static List<CharacterStats> IGchampionList = new List<CharacterStats>();
+    public static List<IGStats> IGList = new List<IGStats>();
+
+
+
     private void Awake()
     {
-      //  IGchampionList.Add(new CharacterStats("Kayle",  10, 20, 30, 10, 100, 1.0f, 100, 20));
-
+        IGList.Add(new IGStats("Kayle", 10, 15, 30, 30, 100, 1.0f, 100, 30, 1000 ));
+        IGList.Add(new IGStats("Khione", 10, 15, 30, 30, 100, 1.0f, 100, 30,1000));
+        IGList.Add(new IGStats("Mengele", 10, 15, 30, 30, 100, 1.0f, 100, 30,1000));
+        IGList.Add(new IGStats("Teresa", 10, 15, 30, 30, 100, 1.0f, 100, 30,1000));
     }
 }
-//Name = name;
-//armor = Armor;
-//AD = aD;
-//AP = aP;
-//MR = mR;
-//MoveSpeed = moveSpeed;
-//AS = aS;
-//maxMana = MaxMana;
-//currentMana = CurrentMana;
+//string name;
+//float Armor;
+//float aD;
+//float aP;
+//float mR;
+//float moveSpeed;
+//float aS;
+//float MaxMana;
+//float CurrentMana;

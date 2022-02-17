@@ -34,7 +34,7 @@ public class CharacterStats : MonoBehaviour
 	}
     private void Start()
     {
-		StartCoroutine("DoCheck");
+		//StartCoroutine("DoCheck");
     }
     // Damage the character
     public void TakePDamage(float damage)
@@ -91,25 +91,5 @@ public class CharacterStats : MonoBehaviour
 		gameObject.transform.parent.GetComponent<ANIM>().Animate("Die");
 		Debug.Log(transform.name + " died.");
 	}
-	public CharacterStats(
-	string name,
-	 float Armor,
-	 float aD,
-	 float aP,
-	 float mR,
-	 float moveSpeed,
-	 float aS,
-	 float MaxMana,
-	 float CurrentMana)
-    {
-		Name = name;
-		armor.SetValue(Armor);
-		AD.SetValue(aD);
-		AP.SetValue( aP);
-		MR.SetValue(mR);
-		MoveSpeed.SetValue( moveSpeed);
-		AS.SetValue( aS);
-		maxMana.SetValue(MaxMana);
-		currentMana.SetValue( CurrentMana);
-    }
+	
 }

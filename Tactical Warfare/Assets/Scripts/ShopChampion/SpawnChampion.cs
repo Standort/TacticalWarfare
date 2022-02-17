@@ -48,13 +48,52 @@ public class SpawnChampion : MonoBehaviour
           
            GameObject GO2 = Instantiate(Champion_Prefab, BenchMaker.BenchTiles[x].transform.position, Quaternion.identity) as GameObject;
             var currentChampion = GO2.GetComponent<IGChampion>();
-
+            setStats(GO2, name);
+            
             currentChampion.SetName(name);
             currentChampion.SetModel(Champ);
+            //var info = currentChampion.GetComponent<CharacterStats>();
+            //for(int i = 0; i<IGDatabase.IGchampionList.Count;i++)
+            //{
+            //    if(currentChampion.ChampionName == IGDatabase.IGchampionList[i][0])
+            //}
+            //info.
             //currentChampion.
             BenchMaker.BenchTiles[x].GetComponent<BenchTileScript>().occupied = true;
 
         }
         
+    }
+    void setStats(GameObject GO, string n)
+    {
+        var GOStats = GO.GetComponent<CharacterStats>();
+
+       
+        int ind = FindIndexWithName(n);
+        print(n);
+        if (ind!=0)
+        {
+            var Data = IGDatabase.IGList[ind - 1];
+            GOStats.Name = Data.name;
+            GOStats.armor.baseValue = Data.Armor;
+            GOStats.AD.baseValue = Data.aD;
+            GOStats.AP.baseValue = Data.aP;
+            GOStats.AS.baseValue = Data.aS;
+            GOStats.MR.baseValue = Data.mR;
+            GOStats.maxHealth.baseValue = Data.MaxHealth;
+            GOStats.maxMana.baseValue = Data.MaxMana;
+            GOStats.currentMana.baseValue = Data.CurrentMana;
+
+        }
+        
+    }
+    int FindIndexWithName(string Champsname)
+    {
+        for(int i = 0; i < IGDatabase.IGList.Count;i++)
+        {
+            if (IGDatabase.IGList[i].name == Champsname)
+                return i+1;
+        }
+        return 0;
     }
 }

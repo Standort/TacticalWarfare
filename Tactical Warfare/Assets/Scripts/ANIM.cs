@@ -14,7 +14,7 @@ public class ANIM : MonoBehaviour
     }
     private void Update()
     {
-        Animate("Die");
+        Animate("JumpAirAttack");
     }
     public void Animate(string s)
     {

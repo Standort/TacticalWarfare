@@ -38,7 +38,7 @@ public class BenchMaker : MonoBehaviour
             
             if(go.GetComponent<BenchTileScript>().occupied == false)
             {
-                print(i + 1);
+                
                 return i+1;
             }
             i++;
