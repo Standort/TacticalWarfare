@@ -9,6 +9,7 @@ public class CharacterStats : MonoBehaviour
 	public string Name;
 	public Stat maxHealth;
 	[SerializeField] public float currentHealth { get; private set; }
+	[SerializeField] private HealthBar _healthBar;
 
 	 Stat Pdamage;
 	 Stat Mdamage;
@@ -30,11 +31,14 @@ public class CharacterStats : MonoBehaviour
     }
 	void Awake()
 	{
-		currentHealth = maxHealth.GetTrueValue();
+		//print(armor.GetTrueValue() + "armor");
+		
 	}
     private void Start()
     {
-		//StartCoroutine("DoCheck");
+		currentHealth = maxHealth.GetTrueValue();
+		_healthBar.UpdateHealthBar(maxHealth.baseValue, currentHealth);
+		StartCoroutine("DoCheck");
     }
     // Damage the character
     public void TakePDamage(float damage)
@@ -46,17 +50,19 @@ public class CharacterStats : MonoBehaviour
 		// Damage the character
 		currentHealth -= damage;
 		Debug.Log(transform.name + " takes " + damage + "physcial damage.");
-
+		//print(currentHealth);
 		// If health reaches zero
+		_healthBar.UpdateHealthBar(maxHealth.baseValue, currentHealth);
 		if (currentHealth <= 0)
 		{
-			//Die();
+			Die();
 		}
 	}
 
 
 	void Update()
 	{
+		//print(armor.GetTrueValue() + "armor");
 		//StartCoroutine("DoCheck");
 	}
 	IEnumerator DoCheck()
@@ -64,7 +70,7 @@ public class CharacterStats : MonoBehaviour
 		for (; ; )
 		{
 			// execute block of code here
-			TakePDamage(10);
+			TakePDamage(15);
 			yield return new WaitForSeconds(2);
 		}
 	}
@@ -76,7 +82,7 @@ public class CharacterStats : MonoBehaviour
 		// Damage the character
 		currentHealth -= damage;
 		Debug.Log(transform.name + " takes " + damage + "magic damage.");
-
+		_healthBar.UpdateHealthBar(maxHealth.baseValue, currentHealth);
 		// If health reaches zero
 		if (currentHealth <= 0)
 		{
@@ -88,7 +94,7 @@ public class CharacterStats : MonoBehaviour
 	{
 		// Die in some way
 		// This method is meant to be overwritten
-		gameObject.transform.parent.GetComponent<ANIM>().Animate("Die");
+		//gameObject.transform.parent.GetComponent<ANIM>().Animate("Die");
 		Debug.Log(transform.name + " died.");
 	}
 	

@@ -98,6 +98,7 @@ public class DragAndDrop : MonoBehaviour
     }
     private IEnumerator DragUpdate(GameObject clickedObject)
     {
+        clickedObject = clickedObject.transform.parent.gameObject;
         float initialDistance = Vector3.Distance(clickedObject.transform.position, mainCamera.transform.position);
         clickedObject.TryGetComponent<Rigidbody>(out var rb);
         while (mouseClick.ReadValue<float>() != 0)
@@ -168,7 +169,9 @@ public class DragAndDrop : MonoBehaviour
                 currentTile = tempor;
                 tempor.GetComponent<BenchTileScript>().occupied = true;
             }
-            
+            print(clickedObject.name);
+       
+          
         }
        
 

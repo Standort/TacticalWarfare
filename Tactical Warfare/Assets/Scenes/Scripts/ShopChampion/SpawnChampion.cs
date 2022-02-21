@@ -83,6 +83,7 @@ public class SpawnChampion : MonoBehaviour
             GOStats.maxHealth.baseValue = Data.MaxHealth;
             GOStats.maxMana.baseValue = Data.MaxMana;
             GOStats.currentMana.baseValue = Data.CurrentMana;
+            GOStats.MoveSpeed.baseValue = Data.moveSpeed;
 
         }
         
