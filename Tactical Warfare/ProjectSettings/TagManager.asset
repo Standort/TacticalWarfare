@@ -9,6 +9,7 @@ TagManager:
   - Selectable
   - Draggable
   - Tile
+  - Unit
   layers:
   - Default
   - TransparentFX

@@ -15,8 +15,8 @@ public class IGStats
 	public float MaxMana;
 	public float CurrentMana;
 	public float MaxHealth;
-
-	public IGStats(string Name, float armor, float AD, float AP, float MR, float MoveSpeed, float AS, float maxMana, float currentMana, float maxHealth)
+	public float Range;
+	public IGStats(string Name, float armor, float AD, float AP, float MR, float MoveSpeed, float AS, float maxMana, float currentMana, float maxHealth, float range)
     {
 		name = Name;
 		Armor = armor;
@@ -28,6 +28,7 @@ public class IGStats
 		MaxMana = maxMana;
 		CurrentMana = currentMana;
 		MaxHealth = maxHealth;
+		Range = range;
     }
 	
 }

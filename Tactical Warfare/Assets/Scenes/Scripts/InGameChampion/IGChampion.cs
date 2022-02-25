@@ -7,6 +7,7 @@ public class IGChampion : MonoBehaviour
 {
     public  string ChampionName;
     public  GameObject Model;
+    public GameObject CurrentTile;
     public  void SetName(string name)
     {
         ChampionName = name;
@@ -19,5 +20,9 @@ public class IGChampion : MonoBehaviour
     {
         var ch = Instantiate(Model, gameObject.transform);
         ch.transform.parent = transform;
+    }
+    public void GetTile(GameObject tile)
+    {
+        CurrentTile = tile;
     }
 }

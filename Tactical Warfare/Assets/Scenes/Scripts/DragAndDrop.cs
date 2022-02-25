@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class DragAndDrop : MonoBehaviour
 {
+   // 157 
+    IGCManager igcManager;
     [SerializeField]
     private InputAction mouseClick;
     [SerializeField]
@@ -154,9 +156,12 @@ public class DragAndDrop : MonoBehaviour
                 newPosition.z = tempor.transform.position.z;
                 newPosition.y = tempor.transform.position.y;
                 clickedObject.transform.position = newPosition;
+                //clickedObject
+               
                 changeColorBack(tempor);
                 currentTile = tempor;
                 tempor.GetComponent<BenchTileScript>().occupied = true;
+                clickedObject.GetComponent<IGChampion>().GetTile(tempor);
             }
             else
             {
@@ -167,7 +172,9 @@ public class DragAndDrop : MonoBehaviour
                 clickedObject.transform.position = newPosition;
                 changeColorBack(tempor);
                 currentTile = tempor;
+                
                 tempor.GetComponent<BenchTileScript>().occupied = true;
+                clickedObject.GetComponent<IGChampion>().GetTile(tempor);
             }
             print(clickedObject.name);
        

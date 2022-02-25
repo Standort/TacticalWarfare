@@ -43,7 +43,6 @@ Material:
     - _Smoothness: 0
     - __dirty: 0
     m_Colors:
-    - _Hair: {r: 0.6406372, g: 0.8773585, b: 0.8431626, a: 0}
-    - _InnerCloth: {r: 0.5578676, g: 0.7107863, b: 0.8773585, a: 0}
-    - _OuterChlothes: {r: 0.51135635, g: 0.6017088, b: 0.7924528, a: 0}
-  m_BuildTextureStacks: []
+    - _Hair: {r: 0.63235295, g: 0.047971603, b: 0.009299317, a: 0}
+    - _InnerCloth: {r: 0.50735295, g: 0.45260414, b: 0.01119162, a: 0}
+    - _OuterChlothes: {r: 0.024816178, g: 0.375, b: 0.07070238, a: 0}

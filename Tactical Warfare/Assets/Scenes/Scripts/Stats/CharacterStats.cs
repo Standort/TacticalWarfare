@@ -4,13 +4,14 @@ using System.Collections;
 
 public class CharacterStats : MonoBehaviour
 {
-
+	[SerializeField] public int team = 1; //ker team si, team 0
 	// Health
 	public string Name;
 	public Stat maxHealth;
 	[SerializeField] public float currentHealth { get; private set; }
+	[SerializeField] private ManaBar _manaBar;
 	[SerializeField] private HealthBar _healthBar;
-
+	
 	 Stat Pdamage;
 	 Stat Mdamage;
 	public Stat armor;
@@ -21,7 +22,7 @@ public class CharacterStats : MonoBehaviour
 	public Stat AS;
 	public Stat maxMana;
 	public Stat currentMana;
-	
+	public Stat range;
 	// Set current health to max health
 	// when starting the game.
 
@@ -36,9 +37,12 @@ public class CharacterStats : MonoBehaviour
 	}
     private void Start()
     {
+		//_manaBar = GetComponent<ManaBar>();
 		currentHealth = maxHealth.GetTrueValue();
 		_healthBar.UpdateHealthBar(maxHealth.baseValue, currentHealth);
+		_manaBar.UpdateManaBar(maxMana.baseValue, currentMana.baseValue);
 		StartCoroutine("DoCheck");
+		StartCoroutine("DoMana");
     }
     // Damage the character
     public void TakePDamage(float damage)
@@ -49,7 +53,7 @@ public class CharacterStats : MonoBehaviour
 
 		// Damage the character
 		currentHealth -= damage;
-		Debug.Log(transform.name + " takes " + damage + "physcial damage.");
+		//Debug.Log(transform.name + " takes " + damage + "physcial damage.");
 		//print(currentHealth);
 		// If health reaches zero
 		_healthBar.UpdateHealthBar(maxHealth.baseValue, currentHealth);
@@ -74,6 +78,14 @@ public class CharacterStats : MonoBehaviour
 			yield return new WaitForSeconds(2);
 		}
 	}
+	IEnumerator DoMana()
+    {
+		for(; ; )
+        {
+			useMana(10);
+			yield return new WaitForSeconds(2);
+        }
+    }
 	public void TakeMDamage(float damage)
     {
 		damage -= MR.GetValue();
@@ -89,7 +101,16 @@ public class CharacterStats : MonoBehaviour
 			Die();
 		}
 	}
-
+	public void useMana(float manaSpent)
+    {
+		
+		currentMana.baseValue += manaSpent;
+		if(currentMana.baseValue > maxMana.baseValue)
+        {
+			currentMana.baseValue = 0;
+        }
+		_manaBar.UpdateManaBar(maxMana.baseValue, currentMana.baseValue);
+	}
 	public virtual void Die()
 	{
 		// Die in some way

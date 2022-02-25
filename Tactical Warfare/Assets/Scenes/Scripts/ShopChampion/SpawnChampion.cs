@@ -8,9 +8,11 @@ public class SpawnChampion : MonoBehaviour
     [SerializeField] public GameObject Champion_Prefab;
     int tempID = 0;
     string tempName;
+    IGCManager igManager;
     void Start()
     {
         
+
     }
 
     // Update is called once per frame
@@ -59,6 +61,7 @@ public class SpawnChampion : MonoBehaviour
             //}
             //info.
             //currentChampion.
+            GO2.GetComponent<IGChampion>().GetTile(BenchMaker.BenchTiles[x]);
             BenchMaker.BenchTiles[x].GetComponent<BenchTileScript>().occupied = true;
 
         }
@@ -70,7 +73,7 @@ public class SpawnChampion : MonoBehaviour
 
        
         int ind = FindIndexWithName(n);
-        print(n);
+       
         if (ind!=0)
         {
             var Data = IGDatabase.IGList[ind - 1];
@@ -84,7 +87,7 @@ public class SpawnChampion : MonoBehaviour
             GOStats.maxMana.baseValue = Data.MaxMana;
             GOStats.currentMana.baseValue = Data.CurrentMana;
             GOStats.MoveSpeed.baseValue = Data.moveSpeed;
-
+            GOStats.range.baseValue = Data.Range;
         }
         
     }
