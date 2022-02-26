@@ -146,7 +146,7 @@ public class DragAndDrop : MonoBehaviour
             */
             if (tempor.GetComponent<BenchTileScript>().occupied == false)
             {
-                print(tempor.GetComponent<BenchTileScript>().occupied);
+              //  print(tempor.GetComponent<BenchTileScript>().occupied);
                 if(tempor != currentTile)
                 {
                     currentTile.GetComponent<BenchTileScript>().occupied = false;
@@ -176,7 +176,7 @@ public class DragAndDrop : MonoBehaviour
                 tempor.GetComponent<BenchTileScript>().occupied = true;
                 clickedObject.GetComponent<IGChampion>().GetTile(tempor);
             }
-            print(clickedObject.name);
+           // print(clickedObject.name);
        
           
         }

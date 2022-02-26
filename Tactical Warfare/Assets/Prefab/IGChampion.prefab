@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: -1329925963640103000}
   - component: {fileID: 6048662408734490522}
   - component: {fileID: 5639438711976243150}
+  - component: {fileID: 2141912784708200183}
   m_Layer: 0
   m_Name: IGChampion
   m_TagString: Unit
@@ -164,6 +165,7 @@ MonoBehaviour:
     baseValue: 0
   range:
     baseValue: 0
+  AttackTime: 0.1
 --- !u!114 &-1329925963640103000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeedMovment: 0.075
+  rotateVelocity: 0
   isMoving: 0
+  targetReached: 0
+  currentTarget: {fileID: 0}
 --- !u!114 &5639438711976243150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +208,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+--- !u!114 &2141912784708200183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795545534832736340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41baf2d29fd558f46956f805d95de97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroAttackType: 0
+  targetedEnemy: {fileID: 0}
+  attackRange: 0
+  rotateSpeedForAttack: 0
+  basicAtkIdle: 0
+  isHeroAlive: 0
+  performMeleeAttack: 1
+  performRangedAttack: 1
+  projPrefab: {fileID: 0}
+  projSpawnPoint: {fileID: 0}
 --- !u!1 &2840659230717223637
 GameObject:
   m_ObjectHideFlags: 0

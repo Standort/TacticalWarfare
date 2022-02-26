@@ -30,15 +30,16 @@ public class PCFindNearest : MonoBehaviour
             GOtrans[i] = allChar[i].transform;
         }
         var lastChild = GetClosestEnemy(GOtrans);
-        print(gameObject.transform.GetChild(2).name + "closest " + lastChild.GetChild(lastChild.childCount - 1) + " child positon: " + lastChild.position);
+       // print(gameObject.transform.GetChild(2).name + "closest " + lastChild.GetChild(lastChild.childCount - 1) + " child positon: " + lastChild.position);
 
-            Vector3 T = lastChild.position;
+          
       
 
-           movmentScript.Move(T);
+           movmentScript.getTarget(lastChild);
+           
         }
     }
-    Transform GetClosestEnemy(Transform[] enemies)
+   public Transform GetClosestEnemy(Transform[] enemies)
     {
         Transform tMin = null;
         float minDist = Mathf.Infinity;

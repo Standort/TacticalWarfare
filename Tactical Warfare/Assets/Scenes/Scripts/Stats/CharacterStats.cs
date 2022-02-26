@@ -23,6 +23,7 @@ public class CharacterStats : MonoBehaviour
 	public Stat maxMana;
 	public Stat currentMana;
 	public Stat range;
+	public float AttackTime;
 	// Set current health to max health
 	// when starting the game.
 
@@ -41,7 +42,7 @@ public class CharacterStats : MonoBehaviour
 		currentHealth = maxHealth.GetTrueValue();
 		_healthBar.UpdateHealthBar(maxHealth.baseValue, currentHealth);
 		_manaBar.UpdateManaBar(maxMana.baseValue, currentMana.baseValue);
-		StartCoroutine("DoCheck");
+		//StartCoroutine("DoCheck");
 		StartCoroutine("DoMana");
     }
     // Damage the character
@@ -53,8 +54,8 @@ public class CharacterStats : MonoBehaviour
 
 		// Damage the character
 		currentHealth -= damage;
-		//Debug.Log(transform.name + " takes " + damage + "physcial damage.");
-		//print(currentHealth);
+		Debug.Log(transform.GetChild(transform.childCount-1).name + " takes " + damage + "physcial damage.");
+		print(currentHealth);
 		// If health reaches zero
 		_healthBar.UpdateHealthBar(maxHealth.baseValue, currentHealth);
 		if (currentHealth <= 0)
@@ -68,6 +69,7 @@ public class CharacterStats : MonoBehaviour
 	{
 		//print(armor.GetTrueValue() + "armor");
 		//StartCoroutine("DoCheck");
+		AttackTime = AS.baseValue;
 	}
 	IEnumerator DoCheck()
 	{
