@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
 	// Health
 	public string Name;
 	public Stat maxHealth;
-	[SerializeField] public float currentHealth { get; private set; }
+	[SerializeField] public float currentHealth;
 	[SerializeField] private ManaBar _manaBar;
 	[SerializeField] private HealthBar _healthBar;
 	
@@ -26,7 +26,7 @@ public class CharacterStats : MonoBehaviour
 	public float AttackTime;
 	// Set current health to max health
 	// when starting the game.
-
+	IGState StateScript;
 	void SetArmorToFive()
     {
 		AD.baseValue = 5;
@@ -44,6 +44,7 @@ public class CharacterStats : MonoBehaviour
 		_manaBar.UpdateManaBar(maxMana.baseValue, currentMana.baseValue);
 		//StartCoroutine("DoCheck");
 		StartCoroutine("DoMana");
+		StateScript = GetComponent<IGState>();
     }
     // Damage the character
     public void TakePDamage(float damage)
@@ -118,6 +119,7 @@ public class CharacterStats : MonoBehaviour
 		// Die in some way
 		// This method is meant to be overwritten
 		//gameObject.transform.parent.GetComponent<ANIM>().Animate("Die");
+		StateScript.Died();
 		Debug.Log(transform.name + " died.");
 	}
 	

@@ -5,39 +5,60 @@ using UnityEngine;
 public class PCFindNearest : MonoBehaviour
 {
     IGMovment movmentScript;
-    
+   // Transform[] ArrayOfEnemies = new Transform[x];
     // Start is called before the first frame update
     void Start()
     {
         movmentScript = gameObject.GetComponent<IGMovment>();
+     Transform[]  ArrayOfEnemies = FindAllEnemies();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.GetComponent<CharacterStats>().team == 1)
-        {
+      Transform[]  ArrayOfEnemies = FindAllEnemies();
+
+
+
+
+
+
 
        
-        int team = gameObject.GetComponent<CharacterStats>().team;
+            if (ArrayOfEnemies.Length != 0)
+            {
+                var lastChild
+                    = GetClosestEnemy(ArrayOfEnemies);
+                movmentScript.getTarget(lastChild);
+            }
+
+        // print(gameObject.transform.GetChild(2).name + "closest " + lastChild.GetChild(lastChild.childCount - 1) + " child positon: " + lastChild.position);
+
+
+
+
+
+
+
+    }
+    public Transform[] FindAllEnemies()//on round start
+    {
+       
         GameObject[] allChar = GameObject.FindGameObjectsWithTag("Unit");
-        int NumOfUnits = allChar.Length;
-        Transform[] GOtrans;
-        GOtrans = new Transform[NumOfUnits];
-
-        for (int i = 0; i < NumOfUnits; i++)
+        // int i = 0;
+       // Transform[] GOtrans;
+         List<Transform> GOTrans = new List<Transform>();
+       
+        for (int i= 0; i< allChar.Length; i++)
         {
-            GOtrans[i] = allChar[i].transform;
+            if(gameObject.GetComponent<IsTargetable>().IsItTargetable(allChar[i].transform))
+            {
+                GOTrans.Add( allChar[i].transform);
+            }
         }
-        var lastChild = GetClosestEnemy(GOtrans);
-       // print(gameObject.transform.GetChild(2).name + "closest " + lastChild.GetChild(lastChild.childCount - 1) + " child positon: " + lastChild.position);
-
-          
-      
-
-           movmentScript.getTarget(lastChild);
-           
-        }
+       Transform[] GOTrans2 = GOTrans.ToArray();
+        return GOTrans2;
     }
    public Transform GetClosestEnemy(Transform[] enemies)
     {

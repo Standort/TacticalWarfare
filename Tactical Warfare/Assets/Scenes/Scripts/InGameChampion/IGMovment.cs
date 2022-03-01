@@ -22,6 +22,7 @@ public class IGMovment : MonoBehaviour
     {
         if(currentTarget!= null)
         {
+            if(gameObject.GetComponent<IsTargetable>().IsItTargetable(currentTarget))
             Move(currentTarget.position);
         }
     }
@@ -44,12 +45,14 @@ public class IGMovment : MonoBehaviour
         float distance = Vector3.Distance(transform.position, target);
         if (gameObject.GetComponent<CharacterStats>().range.baseValue < distance)
         {
+            //print("not range");
             transform.position += transform.GetChild(gameObject.transform.childCount - 1).forward * gameObject.GetComponent<CharacterStats>().MoveSpeed.baseValue * Time.deltaTime;
             targetReached = false;
             isMoving = true;
         }
         else
         {
+            //print("in range");
             targetReached = true;
             isMoving = false;
         }
@@ -60,5 +63,8 @@ public class IGMovment : MonoBehaviour
     {
         return isMoving;
     }
- 
+    public bool getTargetReached()
+    {
+        return targetReached;
+    }
 }

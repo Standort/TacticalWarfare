@@ -25,6 +25,8 @@ public class IGCombat : MonoBehaviour
     public GameObject projPrefab;
     public Transform projSpawnPoint;
 
+    public bool RangedAttackWait = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,8 +40,11 @@ public class IGCombat : MonoBehaviour
     void Update()
     {
         targetedEnemy = moveScript.currentTarget;
-        if (targetedEnemy != null)
+        
+
+        if ((targetedEnemy != null) && gameObject.GetComponent<IsTargetable>().IsItTargetable(targetedEnemy) )
         {
+           
             ASpeed = statsScript.AS.baseValue;
             anim.speed = ASpeed;
             if(moveScript.targetReached)
@@ -64,7 +69,7 @@ public class IGCombat : MonoBehaviour
 
                     if (performRangedAttack)
                     {
-                        Debug.Log("Attack The Minion");
+                        //Debug.Log("Attack The Minion");
 
                         //Start Coroutine To Attack
                         StartCoroutine(RangedAttackInterval());
@@ -73,6 +78,7 @@ public class IGCombat : MonoBehaviour
 
             }
         }
+        //performMeleeAttack = true;
 
     }
     public void getTarget(Transform x)
@@ -86,7 +92,7 @@ public class IGCombat : MonoBehaviour
         
         yield return new WaitForSeconds(1/ASpeed);
         MeleeAttack();
-        if (targetedEnemy == null)
+        if (targetedEnemy == null || !moveScript.getTargetReached())
         {
             anim.SetBool("Basic Attack", false);
             performMeleeAttack = true;
@@ -97,13 +103,13 @@ public class IGCombat : MonoBehaviour
     IEnumerator RangedAttackInterval()
     {
         performRangedAttack = false;
-        anim.SetBool("Basic Attack", true);
+        anim.SetBool("Ranged Attack", true);
 
         yield return new WaitForSeconds(statsScript.AttackTime / ((100 + statsScript.AttackTime) * 0.01f));
-
-        if (targetedEnemy == null)
+        RangedAttack();
+        if (targetedEnemy == null || !moveScript.getTargetReached())
         {
-            anim.SetBool("Basic Attack", false);
+            anim.SetBool("Ranged Attack", false);
             performRangedAttack = true;
         }
     }
@@ -125,25 +131,24 @@ public class IGCombat : MonoBehaviour
         if (targetedEnemy != null)
         {
             
-               // SpawnRangedProj("Minion", targetedEnemy);
+               SpawnRangedProj( targetedEnemy);
            
         }
 
         performRangedAttack = true;
     }
 
-    //void SpawnRangedProj(string typeOfEnemy, GameObject targetedEnemyObj)
-    //{
-    //    float dmg = statsScript.gameObject.GetComponent<CharacterStats>().AD.baseValue;
+    void SpawnRangedProj(Transform targetedEnemyObj)
+    {
+        float dmg = statsScript.gameObject.GetComponent<CharacterStats>().AD.baseValue;
 
-    //    Instantiate(projPrefab, projSpawnPoint.transform.position, Quaternion.identity);
+        Instantiate(projPrefab, projSpawnPoint.transform.position, Quaternion.identity);
 
-    //    if (typeOfEnemy == "Minion")
-    //    {
-    //        projPrefab.GetComponent<RangedProjectile>().targetType = typeOfEnemy;
 
-    //        projPrefab.GetComponent<RangedProjectile>().target = targetedEnemyObj;
-    //        projPrefab.GetComponent<RangedProjectile>().targetSet = true;
-    //    }
-    //}
+        
+            projPrefab.GetComponent<RangedProjectile>().target = targetedEnemyObj;
+            projPrefab.GetComponent<RangedProjectile>().targetSet = true;
+        
+        
+    }
 }
