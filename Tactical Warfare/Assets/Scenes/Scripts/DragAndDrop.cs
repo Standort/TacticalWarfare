@@ -88,7 +88,8 @@ public class DragAndDrop : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
-            if(hit.collider != null && hit.collider.gameObject.GetComponentInParent<IGState>().isDraggable)//((hit.collider.gameObject.CompareTag("Draggable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable"))))
+            if(!(hit.collider.gameObject.layer == LayerMask.NameToLayer("UI"))) 
+            if (hit.collider != null && hit.collider.gameObject.GetComponentInParent<IGState>().isDraggable  )//((hit.collider.gameObject.CompareTag("Draggable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable"))))
             {
                 currentTile = FindClosestTile(hit.collider.gameObject);
                 StartCoroutine(DragUpdate(hit.collider.gameObject));
