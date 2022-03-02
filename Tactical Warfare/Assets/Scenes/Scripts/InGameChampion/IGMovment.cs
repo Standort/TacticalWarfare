@@ -10,25 +10,43 @@ public class IGMovment : MonoBehaviour
     public bool isMoving;
     public bool targetReached = false;
     public Transform currentTarget;
+    private IGState state;
     // Start is called before the first frame update
     void Start()
     {
-        
-        agent = gameObject.transform.GetChild(gameObject.transform.childCount - 1).GetComponent<NavMeshAgent>();
+
+        state = GetComponent<IGState>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentTarget!= null)
+        if (state.CanMove())
         {
-            if(gameObject.GetComponent<IsTargetable>().IsItTargetable(currentTarget))
-            Move(currentTarget.position);
+
+
+            if (currentTarget != null)
+            {
+                if (gameObject.GetComponent<IsTargetable>().IsItTargetable(currentTarget))
+                    Move(currentTarget.position);
+            }
+        }
+        else
+        {
+            isMoving = false;
+            targetReached = false;
         }
     }
     public void getTarget(Transform x)
     {
         currentTarget = x;
+    }
+    public bool isTargetSet()
+    {
+        if (currentTarget != null)
+            return true;
+        else
+            return false;
     }
     public void Move(Vector3 target)
     {
@@ -41,23 +59,34 @@ public class IGMovment : MonoBehaviour
             rotateSpeedMovment * (Time.deltaTime * 5));
 
         transform.GetChild(gameObject.transform.childCount - 1).eulerAngles = new Vector3(0, rotationY, 0);
-        
+
         float distance = Vector3.Distance(transform.position, target);
-        if (gameObject.GetComponent<CharacterStats>().range.baseValue < distance)
+        if(state.CanMove())
         {
-            //print("not range");
+
+        
+        if (!isInRange(distance))
+        {
+           
             transform.position += transform.GetChild(gameObject.transform.childCount - 1).forward * gameObject.GetComponent<CharacterStats>().MoveSpeed.baseValue * Time.deltaTime;
             targetReached = false;
             isMoving = true;
         }
         else
         {
-            //print("in range");
+       
             targetReached = true;
             isMoving = false;
         }
-           
-       
+
+        }
+    }
+    public bool isInRange(float distance)
+    {
+        if (gameObject.GetComponent<CharacterStats>().range.baseValue < distance)
+            return false;
+        else
+            return true;
     }
     public bool getMovment()
     {

@@ -15,7 +15,7 @@ public class IGCombat : MonoBehaviour
     private CharacterStats statsScript;
     private Animator anim;
     private PCFindNearest find;
-
+    private IGState state;
     public bool basicAtkIdle = false;
     public bool isHeroAlive;
     public bool performMeleeAttack = true;
@@ -34,28 +34,44 @@ public class IGCombat : MonoBehaviour
         statsScript = GetComponent<CharacterStats>();
         anim = gameObject.GetComponentInChildren<Animator>();
         find = GetComponent<PCFindNearest>();
+        state = GetComponent<IGState>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        targetedEnemy = moveScript.currentTarget;
-        
-
-        if ((targetedEnemy != null) && gameObject.GetComponent<IsTargetable>().IsItTargetable(targetedEnemy) )
+        if(state.CanFight())
         {
-           
+           if(moveScript.isTargetSet())
+            StartCombat();
+        }
+        
+        else
+        {
+            anim.SetBool("Basic Attack", false);
+            performMeleeAttack = true;
+        }
+    }
+    public void StartCombat()
+    {
+        
+        targetedEnemy = moveScript.currentTarget;
+        float distance = Vector3.Distance(transform.position, targetedEnemy.position);
+        moveScript.Move(targetedEnemy.position);
+        if ((targetedEnemy != null) && gameObject.GetComponent<IsTargetable>().IsItTargetable(targetedEnemy) && gameObject.GetComponent<IGMovment>().isInRange(distance))
+        {
+
             ASpeed = statsScript.AS.baseValue;
             anim.speed = ASpeed;
-            if(moveScript.targetReached)
+            if (moveScript.targetReached)
             {
                 //MELEE CHARACTRER
                 if (statsScript.range.baseValue <= 1)
                 {
-                 
+
                     if (performMeleeAttack)
                     {
-                      //  Debug.Log("Attack The Minion");
+                        //  Debug.Log("Attack The Minion");
 
                         //Start Coroutine To Attack
                         StartCoroutine(MeleeAttackInterval());
@@ -63,9 +79,9 @@ public class IGCombat : MonoBehaviour
                 }
 
                 //RANGED CHARACTER
-                else 
+                else
                 {
-                 
+
 
                     if (performRangedAttack)
                     {
@@ -77,9 +93,15 @@ public class IGCombat : MonoBehaviour
                 }
 
             }
+            //print(gameObject.name + " target in reach");
         }
         //performMeleeAttack = true;
+        else
+        {
+            anim.SetBool("Basic Attack", false);
+            performMeleeAttack = true;
 
+        }
     }
     public void getTarget(Transform x)
     {

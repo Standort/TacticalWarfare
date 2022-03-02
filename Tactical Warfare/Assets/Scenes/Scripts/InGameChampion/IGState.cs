@@ -36,5 +36,21 @@ public class IGState : MonoBehaviour
     {
         isDraggable = false;
     }
-    
+    public bool CanFight()
+    {
+        if(!isDead && !isStunned)
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool CanMove()
+    {
+        if(!isDead && !isRooted && !isStunned)
+        {
+            return true;
+
+        }
+        return false;
+    }
 }
