@@ -20,7 +20,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private bool Pressed = false;
     private float tileOfset = 1.0f;
-    private GameObject tempor;
+    public GameObject tempor;
     public GameObject tile;
     public Material Material1;
     public Material Material2;
@@ -46,8 +46,8 @@ public class DragAndDrop : MonoBehaviour
         }
         
         closest.GetComponent<MeshRenderer>().material = Material1;
-        print(closest.gameObject.name);
-        print(closest.GetComponent<BenchTileScript>().occupied);
+        //print(closest.gameObject.name);
+       // print(closest.GetComponent<BenchTileScript>().occupied);
         return closest;
     }
     private void changeColorBack(GameObject t)
@@ -91,7 +91,7 @@ public class DragAndDrop : MonoBehaviour
             
                 if (hit.collider != null && hit.collider.gameObject.transform.parent.TryGetComponent( out IGState IGS ))   //((hit.collider.gameObject.CompareTag("Draggable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable"))))
                 {
-                print("yes");
+             //   print("yes");
                 if(IGS.isDraggable)
                 {
                     currentTile = FindClosestTile(hit.collider.gameObject);
@@ -134,7 +134,7 @@ public class DragAndDrop : MonoBehaviour
             }
            else if(previousClosest != tempor)
             {
-                print("new");
+               // print("new");
                
                 changeColorBack(previousClosest);
                 previousClosest = tempor;
@@ -169,6 +169,7 @@ public class DragAndDrop : MonoBehaviour
                 changeColorBack(tempor);
                 currentTile = tempor;
                 tempor.GetComponent<BenchTileScript>().occupied = true;
+               // SendTile(tempor);
                 clickedObject.GetComponent<IGChampion>().GetTile(tempor);
             }
             else
@@ -179,9 +180,11 @@ public class DragAndDrop : MonoBehaviour
                 newPosition.y = currentTile.transform.position.y;
                 clickedObject.transform.position = newPosition;
                 changeColorBack(tempor);
+
                 currentTile = tempor;
                 
                 tempor.GetComponent<BenchTileScript>().occupied = true;
+              //  SendTile(tempor);
                 clickedObject.GetComponent<IGChampion>().GetTile(tempor);
             }
            // print(clickedObject.name);
@@ -191,6 +194,9 @@ public class DragAndDrop : MonoBehaviour
        
 
     }
-    
+    public GameObject SendTile(GameObject x)
+    {
+        return x;
+    }
 
 }

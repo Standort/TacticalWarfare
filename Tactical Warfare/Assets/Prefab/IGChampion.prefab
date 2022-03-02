@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 2141912784708200183}
   - component: {fileID: -3025538792235019572}
   - component: {fileID: 8795264689580112778}
+  - component: {fileID: 3131722954468825434}
   m_Layer: 0
   m_Name: IGChampion
   m_TagString: Unit
@@ -144,10 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7311fb6900f804c9cc8dd0e2e35f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 1
   Name: 
   maxHealth:
     baseValue: 0
+  currentHealth: 0
   _manaBar: {fileID: 5793858745960890145}
   _healthBar: {fileID: 6615515738922676180}
   armor:
@@ -247,10 +249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a96ebe4e61b4d40ac08567f72a82ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 2217503574872661193, guid: f18aa1ff5c59272489c284ca9d4b4a93, type: 3}
   isDead: 0
   isStunned: 0
   isRooted: 0
   sameTeam: 0
+  isDraggable: 1
 --- !u!114 &8795264689580112778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +267,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646590e7a79459444a75010dfe12b4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3131722954468825434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795545534832736340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f336f8bf33cc89041b0d11618e0570bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTile: {fileID: 0}
 --- !u!1 &2609058369251923853
 GameObject:
   m_ObjectHideFlags: 0

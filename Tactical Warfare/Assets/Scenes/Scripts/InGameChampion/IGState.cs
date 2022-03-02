@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class IGState : MonoBehaviour
 {
-   public bool isDead = false;
+    [SerializeField] public GameObject manager;
+    public bool isDead = false;
     public bool isStunned = false;
     public bool isRooted = false;
     public bool sameTeam = false;
     public bool isDraggable = true;
+    RoundManager myObject;
     CharacterStats statScript;
-
+     RoundManager managerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         statScript = GetComponent<CharacterStats>();
+        
+        RoundManager myObject = FindObjectOfType<RoundManager>();
+        managerScript = myObject.GetComponent<RoundManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (managerScript.CombatPhase())
+        {
+            isDraggable = false;
+        }
+        else
+            isDraggable = true;
     }
     public void Died()
     {
@@ -38,7 +48,7 @@ public class IGState : MonoBehaviour
     }
     public bool CanFight()
     {
-        if(!isDead && !isStunned)
+        if(!isDead && !isStunned && managerScript.CombatPhase())
         {
             return true;
         }
@@ -46,8 +56,9 @@ public class IGState : MonoBehaviour
     }
     public bool CanMove()
     {
-        if(!isDead && !isRooted && !isStunned)
+        if(!isDead && !isRooted && !isStunned && managerScript.CombatPhase())
         {
+         //   print("yes");
             return true;
 
         }

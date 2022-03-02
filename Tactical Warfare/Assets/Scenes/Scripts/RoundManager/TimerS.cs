@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Timer : MonoBehaviour
+public class TimerS : MonoBehaviour
 {
     [SerializeField] Text timerText;
     private float StartTime;
     [SerializeField] private int placementTime;
     [SerializeField] private int combatTime;
     private bool Combat = false;
+    private bool CombatOver = false;
     float temp = 0;
     // Start is called before the first frame update
     void Start()
@@ -27,20 +28,24 @@ public class Timer : MonoBehaviour
        
         if (Combat)
         {
+            CombatOver = false;
             timerText.GetComponent<Text>().color = Color.red;
             if (t >= combatTime)
             {
                 //if(Are all units dead?
 
 
-                print("mjav");
+          
                 temp += t;
            
                 Combat = !Combat;
+                CombatOver = true;
             }
         }
         else
         {
+
+            CombatOver = false;
             timerText.GetComponent<Text>().color = Color.green;
             if (t >= placementTime)
             {
@@ -53,9 +58,10 @@ public class Timer : MonoBehaviour
     }
     public bool IsCombatTime()
     {
-        if (Combat)
-            return true;
-        else
-            return false;
+        return Combat;
+    }
+    public bool IsCombatOver()
+    {
+        return CombatOver;
     }
 }
